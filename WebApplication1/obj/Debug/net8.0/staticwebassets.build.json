@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wLtUL+kEZpUAqgDPkLLed2jl1cO3j+/8myx48tV+OnE=",
+  "Hash": "7lQAGz/PXekwbvKSjIsBDpR2ZOS1bUnDZ7wSyyPGnHU=",
   "Source": "WebApplication1",
   "BasePath": "_content/WebApplication1",
   "Mode": "Default",
@@ -91,6 +91,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/favicon.ico"
+    },
+    {
+      "Identity": "/Users/mohammedchaouki/Documents/csharp/chat-app/WebApplication1/wwwroot/index.js",
+      "SourceId": "WebApplication1",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/mohammedchaouki/Documents/csharp/chat-app/WebApplication1/wwwroot/",
+      "BasePath": "_content/WebApplication1",
+      "RelativePath": "index.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/index.js"
     },
     {
       "Identity": "/Users/mohammedchaouki/Documents/csharp/chat-app/WebApplication1/wwwroot/js/signalr/dist/browser/signalr.js",
