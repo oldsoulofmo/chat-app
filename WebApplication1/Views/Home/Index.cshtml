@@ -1,8 +1,40 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.9/signalr.min.js"></script>
+</head>
+<body>
+<input type="text" id="userInput" placeholder="Enter your name">
+<input type="text" id="messageInput" placeholder="Enter a message">
+<button id="sendButton">Send</button>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome home</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<div id="messages"></div>
+
+<script>
+        // Establish a connection to the SignalR hub
+        const connection = new signalR.HubConnectionBuilder()
+            .withUrl("/chatHub")
+            .build();
+
+        // Receive messages from the hub and display them
+        connection.on("ReceiveMessage", (user, message) => {
+            const msg = document.createElement("div");
+            msg.textContent = `${user}: ${message}`;
+            document.getElementById("messages").appendChild(msg);
+        });
+
+        // Start the connection and handle errors
+        connection.start().catch(err => console.error(err.toString()));
+
+        // Send messages to the hub
+        document.getElementById("sendButton").addEventListener("click", event => {
+            const user = document.getElementById("userInput").value;
+            const message = document.getElementById("messageInput").value;
+            connection.invoke("SendMessage", user, message).catch(err => console.error(err.toString()));
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>

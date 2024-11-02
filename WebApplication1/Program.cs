@@ -1,10 +1,17 @@
+using WebApplication1.Hubs;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
 builder.Services.AddSignalR();
 
+
+
 var app = builder.Build();
+app.MapHub<ChatHub>("/chatHub");
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
